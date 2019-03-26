@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Radium, { StyleRoot } from 'radium';
-import './App.css';
+import classes from './App.css';
 import Person from './Person/Person';
 
 class App extends Component {
@@ -64,13 +63,10 @@ class App extends Component {
       border: "1px solid blue",
       padding: "8px",
       cursos: "pointer",
-      ':hover': {
-        backgroundColor: "lightgreen",
-        color: "black"
-      }
     }
 
     let persons = null;
+    let btnClass = null;
 
     if (this.state.showPersons){
       persons = (
@@ -90,28 +86,26 @@ class App extends Component {
       );
 
       style.backgroundColor = "red";
-      style[':hover'].backgroundColor = "salmon";
+      btnClass = classes.Red;
     }
 
-    const classes = [];
+    const assignedClasses = [];
     if (this.state.persons.length <= 2) {
-      classes.push('red'); // classes = ['red']
+      assignedClasses.push(classes.red); // classes = ['red']
     }
     if (this.state.persons.length <= 1) {
-      classes.push('bold'); // classes = ['red', 'bold']
+      assignedClasses.push(classes.bold); // classes = ['red', 'bold']
     }
 
     return (
-      <StyleRoot>
-        <div className="App">
+        <div className={classes.App}>
           <h1>Hi, I'm a React App</h1>
-          <p className={classes.join(' ')}>TRE Interns</p>
-          <button style={style} onClick={this.togglePersonsHandler}>Show/Hide</button>
+          <p className={assignedClasses.join(' ')}>TRE Interns</p>
+          <button className={btnClass} onClick={this.togglePersonsHandler}>Show/Hide</button>
           {persons}
         </div>
-      </StyleRoot>
     );
   }
 }
 
-export default Radium(App); 
+export default App; 
