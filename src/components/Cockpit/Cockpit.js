@@ -19,7 +19,7 @@ const cockpit = (props) => {
     
     return (
         <div className={classes.Cockpit}>
-          <h1>TRE-RN</h1>
+          <h1>{props.title}</h1>
           <p className={assignedClasses.join(' ')}>TRE Interns</p>
           <button className={btnClass} onClick={props.click}>Show/Hide</button>
         </div>

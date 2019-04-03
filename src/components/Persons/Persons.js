@@ -2,6 +2,7 @@ import React from 'react';
 import Person from './Person/Person';
 
 const persons = (props) => {
+    console.log('[Persons.js] render');
     return (
         props.persons.map((person, index) => {
             return (
@@ -17,4 +18,4 @@ const persons = (props) => {
     )
 }
 
-export default persons;
+export default persons; 
